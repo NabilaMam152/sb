@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entraînement Mental - Calcul & Mémoire</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Entraînement Mental</h1>
+            <p>Améliorez vos capacités de calcul et votre mémoire</p>
+        </header>
+
+        <div class="game-selection">
+            <button id="math-btn" class="game-btn">Calcul Mental</button>
+            <button id="memory-btn" class="game-btn">Jeu de Mémoire</button>
+            <button id="dual-btn" class="game-btn">Mode Combiné</button>
+        </div>
+
+        <div id="math-game" class="game-container hidden">
+            <h2>Calcul Mental</h2>
+            <div class="settings">
+                <div>
+                    <label for="operations">Opérations:</label>
+                    <select id="operations" multiple>
+                        <option value="+" selected>Addition</option>
+                        <option value="-" selected>Soustraction</option>
+                        <option value="*">Multiplication</option>
+                        <option value="/">Division</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="difficulty">Difficulté:</label>
+                    <select id="difficulty">
+                        <option value="easy">Facile</option>
+                        <option value="medium" selected>Moyen</option>
+                        <option value="hard">Difficile</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="time">Temps (sec):</label>
+                    <input type="number" id="time" value="30" min="10" max="120">
+                </div>
+            </div>
+            <button id="start-math" class="start-btn">Commencer</button>
+            
+            <div id="math-question" class="hidden">
+                <div class="timer" id="math-timer">30</div>
+                <div class="question" id="math-current-question"></div>
+                <input type="number" id="math-answer" placeholder="Votre réponse...">
+                <button id="math-submit">Valider</button>
+            </div>
+            
+            <div id="math-results" class="hidden">
+                <h3>Résultats</h3>
+                <p>Score: <span id="math-score">0</span></p>
+                <p>Réponses correctes: <span id="math-correct">0</span></p>
+                <p>Réponses incorrectes: <span id="math-incorrect">0</span></p>
+                <button id="math-restart">Recommencer</button>
+            </div>
+        </div>
+
+        <div id="memory-game" class="game-container hidden">
+            <h2>Jeu de Mémoire</h2>
+            <div class="settings">
+                <div>
+                    <label for="cards-number">Nombre de cartes:</label>
+                    <select id="cards-number">
+                        <option value="8">8 (4 paires)</option>
+                        <option value="12" selected>12 (6 paires)</option>
+                        <option value="16">16 (8 paires)</option>
+                        <option value="20">20 (10 paires)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="theme">Thème:</label>
+                    <select id="theme">
+                        <option value="numbers">Chiffres</option>
+                        <option value="letters" selected>Lettres</option>
+                        <option value="symbols">Symboles</option>
+                        <option value="colors">Couleurs</option>
+                    </select>
+                </div>
+            </div>
+            <button id="start-memory" class="start-btn">Commencer</button>
+            
+            <div id="memory-board" class="hidden"></div>
+            
+            <div id="memory-results" class="hidden">
+                <h3>Résultats</h3>
+                <p>Temps: <span id="memory-time">0</span> secondes</p>
+                <p>Essais: <span id="memory-attempts">0</span></p>
+                <button id="memory-restart">Recommencer</button>
+            </div>
+        </div>
+
+        <div id="dual-game" class="game-container hidden">
+            <h2>Mode Combiné</h2>
+            <p>Résolvez des calculs mentaux pour révéler des paires dans le jeu de mémoire!</p>
+            <div class="settings">
+                <div>
+                    <label for="dual-cards">Nombre de paires:</label>
+                    <select id="dual-cards">
+                        <option value="4">4 paires</option>
+                        <option value="6" selected>6 paires</option>
+                        <option value="8">8 paires</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="dual-difficulty">Difficulté calcul:</label>
+                    <select id="dual-difficulty">
+                        <option value="easy">Facile</option>
+                        <option value="medium" selected>Moyen</option>
+                        <option value="hard">Difficile</option>
+                    </select>
+                </div>
+            </div>
+            <button id="start-dual" class="start-btn">Commencer</button>
+            
+            <div id="dual-game-area" class="hidden">
+                <div class="dual-column">
+                    <h3>Calcul Mental</h3>
+                    <div class="question" id="dual-current-question"></div>
+                    <input type="number" id="dual-answer" placeholder="Votre réponse...">
+                    <button id="dual-submit">Valider</button>
+                </div>
+                <div class="dual-column">
+                    <h3>Jeu de Mémoire</h3>
+                    <div id="dual-memory-board"></div>
+                </div>
+            </div>
+            
+            <div id="dual-results" class="hidden">
+                <h3>Résultats</h3>
+                <p>Calculs résolus: <span id="dual-calculs">0</span></p>
+                <p>Paires trouvées: <span id="dual-pairs">0</span></p>
+                <p>Temps total: <span id="dual-total-time">0</span> secondes</p>
+                <button id="dual-restart">Recommencer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
